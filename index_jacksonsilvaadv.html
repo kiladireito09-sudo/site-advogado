@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jackson Silva ADV — Advocacia em Jaboatão dos Guararapes-PE, com atendimento presencial e online em todo o Brasil." />
+  <title>Jackson Silva ADV | Advocacia</title>
+  <style>
+    :root {
+      --bg: #090909;
+      --surface: #121212;
+      --surface-2: #1a1a1a;
+      --text: #f5f1e8;
+      --muted: #bcb6aa;
+      --gold: #d7ad55;
+      --gold-light: #f0d18b;
+      --border: rgba(215,173,85,.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, 92%); margin: auto; }
+    .topbar {
+      border-bottom: 1px solid var(--border);
+      background: #070707;
+      font-size: .86rem;
+      color: var(--muted);
+    }
+    .topbar .container {
+      display: flex; justify-content: space-between; gap: 16px;
+      padding: 9px 0; flex-wrap: wrap;
+    }
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(9,9,9,.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    nav {
+      min-height: 76px; display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 48px; height: 48px; border: 1px solid var(--gold);
+      display: grid; place-items: center; color: var(--gold);
+      font-family: Georgia, serif; font-size: 1.3rem;
+    }
+    .brand strong { display: block; font-family: Georgia, serif; font-size: 1.15rem; letter-spacing: 1px; }
+    .brand span { color: var(--gold); font-size: .72rem; letter-spacing: 3px; }
+    .navlinks { display: flex; gap: 22px; list-style: none; font-size: .92rem; }
+    .navlinks a:hover { color: var(--gold-light); }
+    .menu { display: none; color: var(--gold); font-size: 1.6rem; background: none; border: 0; }
+    .hero {
+      padding: 100px 0 85px;
+      background: radial-gradient(circle at 80% 20%, rgba(215,173,85,.13), transparent 34%);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 60px; align-items: center; }
+    .eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: .78rem; font-weight: bold; }
+    h1 { font: 500 clamp(2.5rem, 5vw, 4.8rem)/1.08 Georgia, serif; margin: 20px 0; }
+    h1 em { color: var(--gold-light); font-style: normal; }
+    .hero p { color: var(--muted); max-width: 580px; font-size: 1.08rem; }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+    .btn {
+      display: inline-flex; justify-content: center; align-items: center;
+      padding: 13px 21px; border: 1px solid var(--gold);
+      font-weight: bold; font-size: .9rem; transition: .2s;
+    }
+    .btn.primary { background: var(--gold); color: #111; }
+    .btn:hover { transform: translateY(-2px); background: var(--gold-light); color: #111; }
+    .hero-card {
+      border: 1px solid var(--border); background: linear-gradient(145deg, #1a1a1a, #0b0b0b);
+      padding: 40px; min-height: 360px; display: flex; flex-direction: column; justify-content: center;
+    }
+    .hero-card .monogram { color: var(--gold); font: 5rem Georgia, serif; text-align: center; margin-bottom: 14px; }
+    .hero-card h2 { text-align: center; font: 1.8rem Georgia, serif; }
+    .hero-card p { text-align: center; margin: 8px auto 0; font-size: .92rem; }
+    section { padding: 82px 0; }
+    .section-head { max-width: 680px; margin-bottom: 38px; }
+    .section-head h2 { font: 2.4rem Georgia, serif; margin: 10px 0; }
+    .section-head p { color: var(--muted); }
+    .dark-section { background: var(--surface); border-block: 1px solid var(--border); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      background: var(--surface-2); border: 1px solid rgba(255,255,255,.08);
+      padding: 28px; transition: .2s;
+    }
+    .card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .card .icon { color: var(--gold); font-size: 1.7rem; margin-bottom: 14px; }
+    .card h3 { font: 1.3rem Georgia, serif; margin-bottom: 9px; }
+    .card p { color: var(--muted); font-size: .94rem; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 55px; align-items: start; }
+    .quote { border-left: 2px solid var(--gold); padding-left: 24px; font: 1.65rem/1.35 Georgia, serif; color: var(--gold-light); }
+    .about-copy p { color: var(--muted); margin-bottom: 16px; }
+    .list { list-style: none; margin-top: 20px; }
+    .list li { margin: 10px 0; color: var(--muted); }
+    .list li::before { content: "✦"; color: var(--gold); margin-right: 10px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .contact-box { border: 1px solid var(--border); padding: 32px; background: var(--surface); }
+    .contact-box h3 { font: 1.5rem Georgia, serif; margin-bottom: 15px; }
+    .contact-box p { color: var(--muted); margin-bottom: 10px; }
+    footer { border-top: 1px solid var(--border); padding: 35px 0; color: var(--muted); font-size: .85rem; }
+    footer .container { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .fineprint { margin-top: 20px; font-size: .76rem; color: #888; max-width: 900px; }
+    @media (max-width: 800px) {
+      .menu { display: block; }
+      .navlinks { display: none; position: absolute; top: 76px; left: 0; right: 0; background: #090909; padding: 20px 4%; flex-direction: column; border-bottom: 1px solid var(--border); }
+      .navlinks.open { display: flex; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero { padding: 65px 0; }
+      .cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 520px) {
+      .cards { grid-template-columns: 1fr; }
+      .hero-card { padding: 25px; }
+      .section-head h2 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>Jackson Silva ADV</span>
+      <span>OAB/PE 61.484 · Jaboatão dos Guararapes – PE</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#inicio" class="brand" aria-label="Página inicial Jackson Silva ADV">
+          <div class="brand-mark">JS</div>
+          <div><strong>JACKSON SILVA</strong><span>ADVOCACIA</span></div>
+        </a>
+        <button class="menu" aria-label="Abrir menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">☰</button>
+        <ul class="navlinks">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#atuacao">Atuação</a></li>
+          <li><a href="#escritorio">Escritório</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Advocacia com ética e compromisso</div>
+          <h1>Orientação jurídica com <em>clareza, responsabilidade e confiança.</em></h1>
+          <p>
+            Atendimento jurídico presencial e online, com análise individualizada
+            das necessidades de cada cliente e respeito às normas da advocacia.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#contato">Agendar atendimento</a>
+            <a class="btn" href="#atuacao">Conheça as áreas</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="monogram">⚖</div>
+          <h2>Jackson Silva ADV</h2>
+          <p>Atendimento em Jaboatão dos Guararapes – PE e online em todo o Brasil.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="atuacao" class="dark-section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Áreas de atuação</div>
+          <h2>Soluções jurídicas para diferentes necessidades</h2>
+          <p>Conteúdo e atendimento orientados pelas particularidades de cada caso concreto.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="icon">⚖</div><h3>Direito de Família</h3><p>Divórcio, guarda, alimentos, regulamentação de convivência e outras questões familiares.</p></article>
+          <article class="card"><div class="icon">⌂</div><h3>Direito Imobiliário</h3><p>Contratos, análise documental, regularização de imóveis, usucapião e adjudicação compulsória.</p></article>
+          <article class="card"><div class="icon">▣</div><h3>Direito Previdenciário</h3><p>Orientação sobre benefícios do INSS, BPC, requerimentos e análise de decisões administrativas.</p></article>
+          <article class="card"><div class="icon">▤</div><h3>Direito Trabalhista</h3><p>Análise de contratos, verbas rescisórias, acidentes de trabalho e demais questões trabalhistas.</p></article>
+          <article class="card"><div class="icon">§</div><h3>Direito Civil</h3><p>Contratos, obrigações, cobranças, responsabilidade civil e conflitos de natureza privada.</p></article>
+          <article class="card"><div class="icon">✧</div><h3>Atendimento personalizado</h3><p>Escuta atenta, avaliação documental e definição das possibilidades jurídicas aplicáveis.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="escritorio">
+      <div class="container about-grid">
+        <div><div class="quote">“Seu direito merece atenção, seriedade e uma orientação responsável.”</div></div>
+        <div class="about-copy">
+          <div class="eyebrow">Sobre o escritório</div>
+          <h2 style="font:2.4rem Georgia,serif;margin:10px 0 18px;">Jackson Silva ADV</h2>
+          <p>
+            O escritório Jackson Silva ADV oferece atendimento jurídico com foco
+            na compreensão das necessidades do cliente, na análise dos documentos
+            e na busca de caminhos juridicamente adequados.
+          </p>
+          <p>
+            Cada demanda é avaliada de forma individual, com comunicação clara
+            sobre documentos, prazos, riscos e possibilidades.
+          </p>
+          <ul class="list">
+            <li>Atendimento presencial em Jaboatão dos Guararapes – PE</li>
+            <li>Atendimento online</li>
+            <li>Atuação nas áreas informadas no site</li>
+            <li>Compromisso com ética e sigilo profissional</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="dark-section">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Entre em contato</div>
+          <h2>Vamos conversar sobre sua necessidade jurídica</h2>
+          <p>Envie uma mensagem para verificar a possibilidade de agendamento e os documentos necessários para a análise inicial.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-box">
+            <h3>Atendimento</h3>
+            <p><strong>Advogado:</strong> Jackson Silva</p>
+            <p><strong>Inscrição:</strong> OAB/PE 61.484</p>
+            <p><strong>Local:</strong> Jaboatão dos Guararapes – PE</p>
+            <p><strong>Modalidade:</strong> Presencial e online</p>
+          </div>
+          <div class="contact-box">
+            <h3>Agendamento</h3>
+            <p>Entre em contato pelo WhatsApp profissional para informar o assunto e verificar a disponibilidade de atendimento.</p>
+            <!-- Substitua o número abaixo pelo WhatsApp profissional antes de publicar. -->
+            <a class="btn primary" href="https://wa.me/5581999999999" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+            <p style="margin-top:15px;font-size:.8rem;">Substitua o número do link pelo seu WhatsApp correto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> Jackson Silva ADV · OAB/PE 61.484</div>
+      <div>Jaboatão dos Guararapes – PE</div>
+    </div>
+    <div class="container">
+      <p class="fineprint">
+        As informações deste site possuem caráter geral e informativo, não substituindo
+        consulta jurídica individualizada. A contratação de serviços depende de análise
+        do caso concreto. A publicidade observa os limites éticos aplicáveis à advocacia.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
